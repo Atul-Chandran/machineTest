@@ -13,6 +13,8 @@ const accessController = require('./Controller/accessToken.controller').accessDe
 const userLanguageController = require('./Controller/userLanguage.controller').userLanguageDetails;
 
 const server = http.createServer(app);
+
+// Agora aiding middleware
 const nocache = (req, resp, next) => {
   resp.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
   resp.header('Expires', '-1');
@@ -30,5 +32,5 @@ app.get('/fetchDetails/start/:start/end/:end',userController.fetchUserDetails);
 app.get('/access_token/channel/:channelName/role/:role', nocache, accessController.getAccessToken);
 
 server.listen(configDetails.environmentDetails.port, configDetails.environmentDetails.hostName, () => {
-  console.log(`Server running at http://localhost:3002/`);
+  console.log(`Server running at http://${configDetails.environmentDetails.hostName}:${configDetails.environmentDetails.port}/`);
 });
