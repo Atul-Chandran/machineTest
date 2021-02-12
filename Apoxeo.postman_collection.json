@@ -1,0 +1,1006 @@
+{
+	"info": {
+		"_postman_id": "e03d11d6-fd76-425c-ad88-1f8a0c86fa3e",
+		"name": "Apoxeo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Failure cases",
+					"item": [
+						{
+							"name": "Fetching access token for non-numeral role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/access_token/channel/VideoCall/role/abc",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"access_token",
+										"channel",
+										"VideoCall",
+										"role",
+										"abc"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Fetching access token for non-numeral role",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/access_token/channel/VideoCall/role/abc",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"access_token",
+												"channel",
+												"VideoCall",
+												"role",
+												"abc"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "private, no-cache, no-store, must-revalidate"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "50"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"32-z8kEQ6J271p2pXUxnm+gstWSNTk\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 12 Feb 2021 08:21:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": 400,\n    \"message\": \"Role must be an integer\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Fetching access token for invalid role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/access_token/channel/VideoCall/role/3",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"access_token",
+										"channel",
+										"VideoCall",
+										"role",
+										"3"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Fetching access token for invalid role",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/access_token/channel/VideoCall/role/3",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"access_token",
+												"channel",
+												"VideoCall",
+												"role",
+												"3"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "private, no-cache, no-store, must-revalidate"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "49"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"31-QVUCql19PCPzCZAAANGZH1Iwnfo\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 12 Feb 2021 08:19:21 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": 400,\n    \"message\": \"Invalid role\",\n    \"data\": {}\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Success cases",
+					"item": [
+						{
+							"name": "Fetching access token for valid channel name and role as publisher",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/access_token/channel/VideoCall/role/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"access_token",
+										"channel",
+										"VideoCall",
+										"role",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Fetching access token for valid channel name and role as publisher",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/access_token/channel/VideoCall/role/1",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"access_token",
+												"channel",
+												"VideoCall",
+												"role",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "private, no-cache, no-store, must-revalidate"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "235"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"eb-Y8ZoVi8nUM36mz9RfIuWIX2FrXg\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 12 Feb 2021 08:18:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": 200,\n    \"message\": \"Token fetched successfully\",\n    \"data\": {\n        \"userRole\": \"Publisher\",\n        \"token\": \"0069d04a844f27f45328ff9b4a21e6fd11fIAD13p16u+GBFstdKKMcbm9YKiulljSDJbJo0mLidtykkF3ev1n0gLOHIgAdWm/NYYsnYAQAAQDxRyZgAgDxRyZgAwDxRyZgBADxRyZg\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Fetching access token for valid channel name and role as subscriber",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/access_token/channel/VideoCall/role/2",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"access_token",
+										"channel",
+										"VideoCall",
+										"role",
+										"2"
+									]
+								},
+								"description": "1 = Subscriber\r\nAny other number = Publisher\r\n"
+							},
+							"response": [
+								{
+									"name": "Fetching access token for valid channel name and role as subscriber",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/access_token/channel/VideoCall/role/2",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"access_token",
+												"channel",
+												"VideoCall",
+												"role",
+												"2"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "private, no-cache, no-store, must-revalidate"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "212"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"d4-2zc6pZLPvwJXLfP4U62Hi+n8q7s\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 12 Feb 2021 08:18:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": 200,\n    \"message\": \"Token fetched successfully\",\n    \"data\": {\n        \"userRole\": \"Subscriber\",\n        \"token\": \"0069d04a844f27f45328ff9b4a21e6fd11fIAAuXsObljyE3KiobQdNDAH4c2kT9YHCfI/KTSd76e5DoF3ev1kE9z9SEAAdWm/NRYsnYAEAAQDVRyZg\"\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User details",
+			"item": [
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "Success cases",
+							"item": [
+								{
+									"name": "Saving user details",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Atul\",\r\n    \"password\": 12345678,\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"phoneNumber\": 8105730136,\r\n    \"gender\": \"M\",\r\n    \"place\": \"Bangalore\",\r\n    \"profession\": \"Developer\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/saveUserDetails",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"saveUserDetails"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Saving user details",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"name\": \"Atul\",\r\n    \"password\": 12345678,\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"phoneNumber\": 8105730136,\r\n    \"gender\": \"M\",\r\n    \"place\": \"Bangalore\",\r\n    \"profession\": \"Developer\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/saveUserDetails",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"saveUserDetails"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "76"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"4c-PX+z9GOuzly355G2DvOeQf6zeKw\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Feb 2021 09:07:37 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"status\": 200,\n    \"message\": \"Data succesfully added and mail sent successfully\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Failure cases",
+							"item": [
+								{
+									"name": "Registering a registered user",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Atul\",\r\n    \"password\": 12345678,\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"phoneNumber\": 8105730136,\r\n    \"gender\": \"M\",\r\n    \"place\": \"Bangalore\",\r\n    \"profession\": \"Developer\",\r\n    \"languagesKnown\": [\"Malayalam\",\"English\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/saveUserDetails",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"saveUserDetails"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Registering a registered user",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"name\": \"Atul\",\r\n    \"password\": 12345678,\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"phoneNumber\": 8105730136,\r\n    \"gender\": \"M\",\r\n    \"place\": \"Bangalore\",\r\n    \"profession\": \"Developer\",\r\n    \"languagesKnown\": [\"Malayalam\",\"English\"]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/saveUserDetails",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"saveUserDetails"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "59"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3b-zxIPPbgMO1DGKbmwp8L2TDdI8GM\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Feb 2021 08:39:54 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"status\": 400,\n    \"message\": \"Sorry!! This user has been taken\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Success cases",
+							"item": [
+								{
+									"name": "User login",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"password\": 12345678\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "User login",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"password\": 12345678\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/login",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"login"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "43"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2b-iFScBzFEfwkbGXW8rz8Rb9zv0w4\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 11 Feb 2021 15:00:48 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"status\": 200,\n    \"message\": \"Login successful\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Failure cases",
+							"item": [
+								{
+									"name": "Logging in with invalid user details",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"maravillosoaccion123@gmail.com\",\r\n    \"password\": 12345678\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/login",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Fetching details",
+					"item": [
+						{
+							"name": "Success cases",
+							"item": [
+								{
+									"name": "Fetching user details with valid start and end limit",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/fetchDetails/start/0/end/20",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"fetchDetails",
+												"start",
+												"0",
+												"end",
+												"20"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Fetching user details with valid start and end limit",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{URL}}/fetchDetails/start/0/end/20",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"fetchDetails",
+														"start",
+														"0",
+														"end",
+														"20"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "344"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"158-cWFdsO/iPfGwNYuEnNfOd/lFbNQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Feb 2021 11:34:03 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"status\": 200,\n    \"message\": \"User details fetched successfully\",\n    \"data\": [\n        {\n            \"_id\": \"60264b0a83a2ac309ced6f97\",\n            \"name\": \"Atul\",\n            \"email\": \"maravillosoaccion@gmail.com\",\n            \"place\": \"Bangalore\",\n            \"profession\": \"Developer\"\n        },\n        {\n            \"_id\": \"6026589070caf119147dfdd7\",\n            \"name\": \"Atul Chandran\",\n            \"email\": \"maravillosoaccion12@gmail.com\",\n            \"place\": \"Bangalore\",\n            \"profession\": \"Developer\"\n        }\n    ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Failure cases",
+							"item": [
+								{
+									"name": "Fetching user details with non-numeric start or end limit",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL}}/fetchDetails/start/0/end/abc",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"fetchDetails",
+												"start",
+												"0",
+												"end",
+												"abc"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Fetching user details with non-numeric start or end limit",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{URL}}/fetchDetails/start/0/end/abc",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"fetchDetails",
+														"start",
+														"0",
+														"end",
+														"abc"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "72"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"48-K0zzei+dAb3/BOTOeOGUSA0ZV0E\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Feb 2021 08:54:55 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"status\": 200,\n    \"message\": \"Start and end limit must be numeric\",\n    \"data\": {}\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Languages",
+					"item": [
+						{
+							"name": "Success cases",
+							"item": [
+								{
+									"name": "Saving languages linked to user email",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"languages\": [\"Malayalam\",\"English\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/addLanguages",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"addLanguages"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Saving languages linked to user email",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"languages\": [\"Malayalam\",\"English\"]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/addLanguages",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"addLanguages"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "55"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"37-wkzuRmu2SiCxYz+QnhMHW1AaFbM\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Feb 2021 10:35:28 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"status\": 200,\n    \"message\": \"Languages added successfully\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Failure cases",
+							"item": [
+								{
+									"name": "Adding languages for email which had already been added",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"languages\": [\"Malayalam\",\"English\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL}}/addLanguages",
+											"host": [
+												"{{URL}}"
+											],
+											"path": [
+												"addLanguages"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Adding languages for email which had already been added",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"maravillosoaccion@gmail.com\",\r\n    \"languages\": [\"Malayalam\",\"English\"]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{URL}}/addLanguages",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"addLanguages"
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

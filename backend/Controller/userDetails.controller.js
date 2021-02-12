@@ -20,12 +20,11 @@ function saveUserDetails(request,response){
         // Details which will be required for user creation
         name = requestMessage.name;
         email = requestMessage.email;
-        password = requestMessage.password;
+        password = String(requestMessage.password);
         phoneNumber = requestMessage.phoneNumber;
         gender = requestMessage.gender;
         place = requestMessage.place;
         profession = requestMessage.profession;
-        languagesKnown = requestMessage.languagesKnown;
 
         // Verifying if the username or email entered by the user already exists in the database
         MongoClient.connect(dbConfigDetails.mongoDBUrl, function(err, db) {
@@ -55,10 +54,10 @@ function saveUserDetails(request,response){
                         email: email,
                         password: md5(password),
                         phoneNumber: phoneNumber,
+                        languages: [],
                         gender: gender,
                         place: place,
                         profession: profession,
-                        languagesKnown: languagesKnown,
                         created: moment().format(),
                         modified: moment().format()
                     }, 
@@ -70,10 +69,25 @@ function saveUserDetails(request,response){
                         })
                     }
                     else{
-                        response.json({
-                            status: 200,
-                            message: "Data succesfully added",  
-                        })
+                        // Sending a success response mail to the user
+                        var isMailSentSuccessful = mailServiceFunction(
+                            email,
+                            "Login Successful",
+                            "<h1> Login Successful!! Congrats </h1>"
+                        );
+
+                        if(isMailSentSuccessful){
+                            response.json({
+                                status: 200,
+                                message: "Data succesfully added and mail sent successfully",  
+                            });
+                        }
+                        else{
+                            response.json({
+                                status: 400,
+                                message: "Data successfully added but error occured while sending mail",  
+                            });
+                        }
                     }
                     db.close();
                 });
@@ -102,7 +116,7 @@ function userLogin(request,response){
     
     if(Object.keys(requestMessage).length > 0){
         email = requestMessage.email;
-        password = requestMessage.password;
+        password = String(requestMessage.password);
 
         MongoClient.connect(dbConfigDetails.mongoDBUrl, function(err, db) {
             var dbo = db.db(dbConfigDetails.dbName);
@@ -126,14 +140,6 @@ function userLogin(request,response){
                         })
                     }
                     else{
-
-                        // Sending a success response mail to the user
-                        mailServiceFunction(
-                            result["email"],
-                            "Login Successful",
-                            "<h1> Login Successful!! Congrats </h1>"
-                        )
-                        
                         if(result){
                             response.json({
                                 status: 200,
@@ -161,22 +167,16 @@ function userLogin(request,response){
 
 function fetchUserDetails(request,response){
     const requestParamters = request.params;
-    try{
-        if(requestParamters["userEmail"]){
+    const requestMessage = request.body;
+    try{    
+        // Limit parameters for pagination
+        const startLimit = parseInt(requestParamters["start"]);
+        const endLimit = parseInt(requestParamters["end"]);
 
-            // Request parameters
-            const email = requestParamters["userEmail"];
-    
-            // Limit parameters for pagination
-            const startLimit = parseInt(requestParamters["start"]);
-            const endLimit = parseInt(requestParamters["end"]);
-    
+        // If a valid integer has been passed for start and end limit
+        if(!isNaN(startLimit) && !isNaN(endLimit)){
             MongoClient.connect(dbConfigDetails.mongoDBUrl, function(err, db) {
                 var dbo = db.db(dbConfigDetails.dbName);
-                var query = {
-                    // email: email,
-                    email: "abc@gmail.com"
-                }
                 dbo.collection(collectionName).findOne(
                     {},
                     {
@@ -199,15 +199,17 @@ function fetchUserDetails(request,response){
                                         projection: {
                                             "_id": 1,
                                             "name": 1,
-                                            "email": 1
+                                            "email": 1,
+                                            "place": 1,
+                                            "profession": 1
                                         }
                                     }
                                 ).skip(startLimit).limit(endLimit).toArray(async function(err, result) {
-                                  if (err) {
-                                      response.json({
-                                          status: 400,
-                                          message: "Error while fetching details"
-                                      })
+                                    if (err) {
+                                        response.json({
+                                            status: 400,
+                                            message: "Error while fetching details"
+                                        })
                                     }
                                     else{
                                         response.json({
@@ -230,6 +232,13 @@ function fetchUserDetails(request,response){
                 )
             });
         }
+        else{
+            response.json({
+                status: 200,
+                message: "Start and end limit must be numeric",
+                data : {}
+            })
+        }
     }
     catch(err){
         response.json({
@@ -242,5 +251,5 @@ function fetchUserDetails(request,response){
 exports.userDetails = {
     saveUserDetails,
     userLogin,
-    fetchUserDetails
+    fetchUserDetails,
 }

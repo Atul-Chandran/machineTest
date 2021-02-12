@@ -12,7 +12,7 @@ var transporter = nodemailer.createTransport({
   }
 });
 function sendMail(emailId, subject, emailMessage){
-
+    var isMailSentSuccessful = true;
     var mailOptions = {
         from: sourceEmailId,
         to: emailId,
@@ -22,9 +22,10 @@ function sendMail(emailId, subject, emailMessage){
 
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
-          console.log(error);
-        } 
+          isMailSentSuccessful = false;
+        }
       });
+    return isMailSentSuccessful;
 }
 
 exports.sendMail = sendMail

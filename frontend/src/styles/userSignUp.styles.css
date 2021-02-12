@@ -1,0 +1,23 @@
+#signUpTitle{
+    position: relative;
+    bottom: 120px;
+    right: 100px;
+}
+
+#signUpEntry{
+    position: relative;
+    bottom: 100px;
+    right: 150px;
+}
+
+.signupForm{
+  background-color: #282c34;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}

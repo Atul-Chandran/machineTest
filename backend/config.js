@@ -1,5 +1,3 @@
-var nodemailer = require('nodemailer');
-
 const environmentDetails = {
     hostName: 'localhost',
     port: 3002
@@ -11,12 +9,19 @@ const databaseDetails = {
 }
 
 const mailDetails = {
-    email: '<your-email-id',
-    password: '<your-password>'
+    email: '<your-email-id>',
+    password: '<your-email-password>'
+}
+
+const agoraDetails = {
+    appId: "<agora-app-id>",
+    appCertificate: "<agora-app-certificate>",
+    tokenExpiryTime: 3600
 }
 
 exports.configDetails = {
     environmentDetails,
     databaseDetails,
-    mailDetails
+    mailDetails,
+    agoraDetails
 }
