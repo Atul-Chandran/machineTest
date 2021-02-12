@@ -9,6 +9,29 @@ Ensure the following are installed before running this application:-
 
 Please read the README.MD file in "backend" folder before running the project.
 
+# DB Reference
+
+I have created the following two tables with the mentioned schema:-
+
+1) user
+
+--> name,
+--> email,
+--> password (md5 hashed in database),
+--> phoneNumber,
+--> gender,
+--> place,
+--> profession,
+--> created,
+--> modified
+
+2) user_language
+
+--> email,
+--> languages,
+--> created,
+--> modified
+
 # Getting started
 
 Perform the following steps to ensure smooth flow of this project:-
