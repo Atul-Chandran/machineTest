@@ -21,3 +21,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+#uppercaseCheck,#lowercaseCheck,#numberCheck,#passwordMatch{
+  color: red;
+}
+
+#signup,#userLogin{
+  position: relative;
+  left: 320px;
+}

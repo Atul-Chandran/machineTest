@@ -67,7 +67,7 @@ code{
   left: 20px;
 }
 
-#loginPassword{
+.loginPassword{
   position: relative;
   left: 10px;
 }

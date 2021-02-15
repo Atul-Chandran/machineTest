@@ -11,40 +11,49 @@ import UserSignUp from './controller/userSignUp';
 import { backendUrls } from './backendUrls';
 
 function App() {
-  const [email,setEmail] = useState("");
+  const [name,setName] = useState("");
   const [password,setPassword] = useState("");
   const [passwordToggle,setPasswordToggle] = useState("password");
   const [icon,setIcon] = useState(faEye);
 
-  const handleEmailChanges = e => {
-    setEmail(e.target.value);
+  const handleNameChanges = e => {
+    setName(e.target.value);
   };
 
   const handlePasswordChanges = e => {
     setPassword(e.target.value);
   };
 
+  // Toggles between showing the "Show-password" icon or not
   function togglePasswordDisplay(){
+
+    // If the password type was hidden, the password will be visible on button click
     if(passwordToggle === "password"){
       setPasswordToggle("text");
+
+      // fetching the "eye-slash" icon to hide the password again on click
       setIcon(faEyeSlash);
     }
     else{
       setPasswordToggle("password");
+      // fetching the "eye" icon to display the password again on click
       setIcon(faEye);
     }
   }
 
   function login(){
-    if(email && password){
+
+    // If a valid name and password was given
+    if(name && password){
       axios.post(backendUrls.loginUrl,{
-        email: email,
+        name: name,
         password: password
       }).then(jsonResponse => {
         if(jsonResponse.data.status === 200){
           alert("Login Successful")
         }
         else{
+          // Shows the error message received from the API
           alert(jsonResponse.data.message);
         }  
       });
@@ -73,14 +82,14 @@ function App() {
         <span id = "loginEntry">
           <p><code>User Name:- </code></p>
             <input
-            value = {email}
-            onChange = {handleEmailChanges}
+            value = {name}
+            onChange = {handleNameChanges}
             type = "text"
             />
           <br/><br/>
           <p><code>Password:-  </code></p>
           <input
-            id = "loginPassword"
+            className = "loginPassword"
             value = {password}
             onChange = {handlePasswordChanges}
             type = {passwordToggle}

@@ -119,21 +119,22 @@ function userLogin(request,response){
     requestMessage = request.body;
     
     if(Object.keys(requestMessage).length > 0){
-        email = requestMessage.email;
+        name = requestMessage.name;
         password = String(requestMessage.password);
 
         MongoClient.connect(dbConfigDetails.mongoDBUrl, function(err, db) {
             var dbo = db.db(dbConfigDetails.dbName);
             var query = {
-                email: email,
+                name: name,
                 password: md5(password)
             }
+
             dbo.collection(collectionName).findOne(
                 query,
                 {
                     projection: {
                         "_id": 1,
-                        "email": 1
+                        "name": 1
                     }
                 },
                 function(err, result) {
